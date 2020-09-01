@@ -36,6 +36,7 @@ Currently dependant on:
 -express
 -nodemon
 -morgan
+-body-parser
 
 ---
 
