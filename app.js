@@ -7,7 +7,11 @@ const mongoose = require('mongoose');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
-mongoose.connect('mongodb+srv://rest-api:' + process.env.MONGO_ATLAS_PW + '@cluster0.mutgo.mongodb.net/Cluster0?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://rest-api:' + process.env.MONGO_ATLAS_PW + '@cluster0.mutgo.mongodb.net/Cluster0?retryWrites=true&w=majority',
+    {
+        useNewUrlParser: true, useUnifiedTopology: true
+    });
+mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
